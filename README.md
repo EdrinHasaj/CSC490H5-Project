@@ -1,4 +1,4 @@
-Group Name: 
+Group Name: Disease Decoders
 
 Team Member Names: Abdullah Siddiqui, Ibrahim Youssef, Edrin Hasaj, Haris Aljic
 

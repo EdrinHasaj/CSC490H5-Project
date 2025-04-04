@@ -11,6 +11,8 @@ Name of Dataset You Plan to Use
 Location of the Dataset
 - The dataset was created by National Institute of Health (NIH) and can be downloaded from Kaggle (National Institutes of Health, 2018).
 
+![Chest X-ray Samples](CSC490H5-Project/figure/intro.png)
+
 Project Overview
 This project focuses on building a deep learning system to classify thoracic diseases from chest X-rays using the ChestX-ray14 dataset. We address challenges like:
 - High class imbalance

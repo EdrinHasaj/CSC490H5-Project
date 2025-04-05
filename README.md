@@ -1,6 +1,6 @@
 Group Name: Disease Decoders
 
-Team Member Names: Abdullah Siddiqui, Ibrahim Youssef, Edrin Hasaj, Haris Aljic
+Team Member Names: Edrin Hasaj, Abdullah Siddiqui, Ibrahim Youssef, Haris Aljic
 
 # The Machine Vision Problem we are Addressing:
 Our goal is to employ a deep learning model to recognize patterns in chest X-ray images for the purpose of detecting thoracic diseases. This process involves identifying the presence of 14 thoracic diseases such as pneumonia, cardiomegaly, and more.
@@ -8,7 +8,7 @@ Our goal is to employ a deep learning model to recognize patterns in chest X-ray
 ## 📚 Table of Contents
 - [Dataset](#dataset)
 - [Dataset Challenges](#dataset-challenges)
-- [Preprocessing](#️data-loading--preprocessing)
+- [Data Preprocessing](#️data-loading--preprocessing)
 - [Model Architectures](#-model-architectures-explored)
 - [Gamma Correction](#-gamma-correction-augmentation)
 - [Ensemble Modeling](#-ensemble-modeling-differential-evolution--greedy-selection)
@@ -61,7 +61,7 @@ This project focuses on building a deep learning system to classify thoracic dis
 ### 🔊 Noisy Data
 ![Chest X-ray Samples](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/noisysample.png)
 
-## [🗃️ Data Loading & Preprocessing](#️data-loading--preprocessing)
+## [🗃️ Data Preprocessing](#️data-loading--preprocessing)
 
 To ensure high-quality input for model training, we applied a series of preprocessing steps and maintained patient-level separation during dataset splitting.
 

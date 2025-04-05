@@ -6,18 +6,21 @@ Team Member Names: Edrin Hasaj, Abdullah Siddiqui, Ibrahim Youssef, Haris Aljic
 Our goal is to employ a deep learning model to recognize patterns in chest X-ray images for the purpose of detecting thoracic diseases. This process involves identifying the presence of 14 thoracic diseases such as pneumonia, cardiomegaly, and more.
 
 ## 📚 Table of Contents
+
 - [Dataset](#dataset)
 - [Dataset Challenges](#dataset-challenges)
 - [Data Preprocessing](#data-preprocessing)
 - [Model Architectures Explored](#model-architectures-explored)
 - [Singular Model Results](#singular-model-results)
 - [Gamma Correction Augmentation](#gamma-correction-augmentation)
-- [Ensemble Modeling](#ensemble-modeling-differential-evolution--greedy-selection)
+- [Ensemble Modeling](#ensemble-modeling)
 - [Ensemble AUROC Results](#ensemble-auroc-results)
 - [Model Interpretability with Grad-CAM](#model-interpretability-with-grad-cam)
 - [Limitations](#limitations)
 - [Individual Contributions](#individual-contributions)
 - [Notebook Overview](#notebook-overview)
+
+
 
 
 ## Dataset
@@ -64,7 +67,7 @@ This project focuses on building a deep learning system to classify thoracic dis
 ### 🔊 Noisy Data
 ![Chest X-ray Samples](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/noisysample.png)
 
-## [🗃️ Data Preprocessing](#️data-preprocessing)
+## [Data Preprocessing](#️data-preprocessing)
 
 To ensure high-quality input for model training, we applied a series of preprocessing steps and maintained patient-level separation during dataset splitting.
 
@@ -103,7 +106,7 @@ The following image preprocessing steps were applied to improve model robustness
 
 
 
-## 🧬 Model Architectures Explored
+## Model Architectures Explored
 
 - **CNN Models**: VGG19, DenseNet121
 ![Chest X-ray Samples](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/D121.drawio_2.png)
@@ -124,13 +127,13 @@ The following image preprocessing steps were applied to improve model robustness
 
 ---
 
-## 🌟 Gamma Correction Augmentation
+## Gamma Correction Augmentation
 
 To enhance image quality and boost classification performance, especially for underrepresented conditions, we applied **Gamma Correction** as a data augmentation technique.
 
 Gamma Correction is a non-linear transformation that adjusts the brightness and contrast of an image using a tunable parameter, helping highlight subtle features that may otherwise be missed in noisy or low-contrast X-ray scans.
 
-### 🎨 Visual Example of Gamma Transformation
+### Visual Example of Gamma Transformation
 
 ![Gamma Correction Example](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/gammacorrect.png)
 
@@ -163,7 +166,7 @@ Gamma Correction is a non-linear transformation that adjusts the brightness and 
 
 🚀 This augmentation led to our **highest model performance**, helping ConvNeXt achieve an **AUROC of 83.86%**, outperforming all non-gamma corrected counterparts.
 
-## 🤝 Ensemble Modeling: Differential Evolution + Greedy Selection
+## Ensemble Modeling
 
 To enhance model performance and stability, we implemented ensembling strategies to combine predictions from multiple models. We evaluated all **57 non-singleton combinations** across six top-performing architectures:
 
@@ -230,7 +233,7 @@ def forward_greedy_de(models, val_preds, val_labels):
 
     return selected_models, best_weights, best_score
 ```
-## 📊 Ensemble AUROC Results
+## Ensemble AUROC Results
 
 | **Ensemble Method**              | **AUROC** | **Competitive Best** | **Optimal Model Weights** |
 |----------------------------------|-----------|------------------------|----------------------------|
@@ -249,7 +252,7 @@ def forward_greedy_de(models, val_preds, val_labels):
 
 > 📌 The ensemble approach consistently improved overall classification performance by leveraging model diversity and adaptive weighting.
 
-## 🔍 Model Interpretability with Grad-CAM
+## Model Interpretability with Grad-CAM
 
 To enhance interpretability and ensure clinical relevance, we implemented **Grad-CAM heatmaps** to visualize where each model focused its attention when predicting disease presence on chest X-rays.
 
@@ -302,11 +305,11 @@ We generated Grad-CAM heatmaps for **each individual model** and the **ensemble 
 
 ---
 
-## ⚠️ Limitations
+## Limitations
 
 Despite our efforts, two key challenges remained unresolved. First, the issue of **class imbalance** proved difficult to fully mitigate. While our gamma correction augmentation improved performance on rare classes, traditional methods such as over-sampling, under-sampling, and class-weighted loss functions often resulted in degraded performance or overfitting. Second, due to **limited computational resources**, we were unable to perform comprehensive hyperparameter tuning across all models. This constrained our ability to explore larger architectures, deeper ensembles, and fine-grained optimization, which may have further boosted performance.
 
-## 👥 Individual Contributions
+## Individual Contributions
 
 ### 🔹 Edrin Hasaj
 - Researched and documented deep learning models and data augmentation techniques  
@@ -332,7 +335,7 @@ Despite our efforts, two key challenges remained unresolved. First, the issue of
 - Trained multiple models and co-developed the cross-validation script  
 - Contributed to preprocessing strategies for improving robustness
 
-## 📓 Notebook Overview
+## Notebook Overview
 
 | 📁 Location                  | 📘 Notebook                                     | 📝 Description                                                  |
 |-----------------------------|-------------------------------------------------|-----------------------------------------------------------------|

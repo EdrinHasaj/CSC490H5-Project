@@ -7,20 +7,40 @@ Our goal is to employ a deep learning model to recognize patterns in chest X-ray
 
 ## Table of Contents
 
-- [Dataset](#dataset)
-- [Dataset Challenges](#dataset-challenges)
-- [Data Preprocessing](#data-preprocessing)
-- [Model Architectures Explored](#model-architectures-explored)
-- [Singular Model Results](#singular-model-results)
-- [Gamma Correction Augmentation](#gamma-correction-augmentation)
-- [Ensemble Modeling](#ensemble-modeling)
-- [Ensemble AUROC Results](#ensemble-auroc-results)
-- [Model Interpretability with Grad-CAM](#model-interpretability-with-grad-cam)
-- [Limitations](#limitations)
-- [Scientific Poster](#scientific-poster)
-- [Individual Contributions](#individual-contributions)
-- [Notebook Overview](#notebook-overview)
-- [References](#references)
+- [The Machine Vision Problem we are Addressing:](#the-machine-vision-problem-we-are-addressing)
+  - [Table of Contents](#table-of-contents)
+  - [Dataset](#dataset)
+  - [Dataset Challenges](#dataset-challenges)
+    - [Class Imbalance Overview](#class-imbalance-overview)
+    - [Multi-label Disease Co-occurence](#multi-label-disease-co-occurence)
+    - [Noisy Data](#noisy-data)
+  - [Data Preprocessing](#data-preprocessing)
+    - [Patient-Level Splitting](#patient-level-splitting)
+    - [Transformations Applied](#transformations-applied)
+  - [Model Architectures Explored](#model-architectures-explored)
+  - [Singular Model Results](#singular-model-results)
+  - [Gamma Correction Augmentation](#gamma-correction-augmentation)
+    - [Visual Example of Gamma Transformation](#visual-example-of-gamma-transformation)
+    - [Impact on Classification Performance (ConvNeXt Model)](#impact-on-classification-performance-convnext-model)
+  - [Ensemble Modeling](#ensemble-modeling)
+    - [1. Uniform Weighted Average](#1-uniform-weighted-average)
+    - [2. Differential Evolution (DE) + Forward Greedy Selection (Novel)](#2-differential-evolution-de--forward-greedy-selection-novel)
+      - [Pseudocode: Forward Greedy + DE Strategy](#pseudocode-forward-greedy--de-strategy)
+  - [Ensemble AUROC Results](#ensemble-auroc-results)
+    - [AUROC Comparison Chart](#auroc-comparison-chart)
+  - [Model Interpretability with Grad-CAM](#model-interpretability-with-grad-cam)
+    - [Why Heatmaps?](#why-heatmaps)
+    - [Heatmap Visualizations (Lung Nodule Sample)](#heatmap-visualizations-lung-nodule-sample)
+    - [Insights from Grad-CAM](#insights-from-grad-cam)
+  - [Limitations](#limitations)
+  - [Scientific Poster](#scientific-poster)
+  - [Individual Contributions](#individual-contributions)
+    - [Edrin Hasaj](#edrin-hasaj)
+    - [Abdullah Siddiqui](#abdullah-siddiqui)
+    - [Ibrahim Youssef](#ibrahim-youssef)
+    - [Haris Aljic](#haris-aljic)
+  - [Notebook Overview](#notebook-overview)
+  - [References](#references)
 
 
 
@@ -364,6 +384,8 @@ Despite our efforts, two key challenges remained unresolved. First, the issue of
 | `new_split_models_overlap/` | `New_Split_Training_No_Overlap.ipynb`          | Clean patient-level training split                              |
 | `new_split_models_overlap/` | `New_Split_Training_No_Overlap_with_CLAHE.ipynb` | CLAHE preprocessing for contrast enhancement                    |
 | `new_split_models_overlap/` | `New_Split_Training_No_Overlap_with_Gamma.ipynb` | Gamma correction for brightness/contrast normalization          |
+| `final_testing_notebooks/` | `final_testing_notebooks/test_with_no_augments.ipynb` | Testing models trained with no augments on unseen test set (20% of dataset)          |
+| `final_testing_notebooks/` | `final_testing_notebooks/test_with_gamma.ipynb` | Testing models trained with gamma correction on unseen test set (20% of dataset)          |
 | `model_ensembling/`         | `model_ensembling_unweighted.ipynb`            | Ensemble with uniform weights                                   |
 | `model_ensembling/`         | `model_ensembling_weighted.ipynb`              | DE + Greedy ensemble optimization                               |
 | `model_ensembling/`         | `model_ensembling_heatmaps.ipynb`              | Grad-CAM heatmaps for ensemble predictions                      |

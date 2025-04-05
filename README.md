@@ -3,7 +3,7 @@ Group Name: Disease Decoders
 Team Member Names: Abdullah Siddiqui, Ibrahim Youssef, Edrin Hasaj, Haris Aljic
 
 # The Machine Vision Problem we are Addressing:
-- Our goal is to employ a deep learning model to recognize patterns in chest X-ray images for the purpose of detecting thoracic diseases. This process involves identifying the presence of 14 thoracic diseases such as pneumonia, cardiomegaly, and more.
+Our goal is to employ a deep learning model to recognize patterns in chest X-ray images for the purpose of detecting thoracic diseases. This process involves identifying the presence of 14 thoracic diseases such as pneumonia, cardiomegaly, and more.
 
 ## Dataset
 

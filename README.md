@@ -5,6 +5,18 @@ Team Member Names: Abdullah Siddiqui, Ibrahim Youssef, Edrin Hasaj, Haris Aljic
 # The Machine Vision Problem we are Addressing:
 Our goal is to employ a deep learning model to recognize patterns in chest X-ray images for the purpose of detecting thoracic diseases. This process involves identifying the presence of 14 thoracic diseases such as pneumonia, cardiomegaly, and more.
 
+## 📚 Table of Contents
+- [Dataset](#dataset)
+- [Dataset Challenges](#dataset-challenges)
+- [Preprocessing](#️data-loading--preprocessing)
+- [Model Architectures](#-model-architectures-explored)
+- [Gamma Correction](#-gamma-correction-augmentation)
+- [Ensemble Modeling](#-ensemble-modeling-differential-evolution--greedy-selection)
+- [Grad-CAM](#-model-interpretability-with-grad-cam)
+- [Limitations](#️-limitations)
+- [Team Contributions](#-individual-contributions)
+- [Notebook Overview](#-notebook-overview)
+
 ## Dataset
 
 **Name**: ChestX-ray14 dataset
@@ -17,7 +29,8 @@ Our goal is to employ a deep learning model to recognize patterns in chest X-ray
 
 ![Chest X-ray Samples](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/intro.png)
 
-## Dataset Challenges
+
+## [Dataset Challenges](#dataset)
 This project focuses on building a deep learning system to classify thoracic diseases from chest X-rays using the ChestX-ray14 dataset. We address challenges like:
 
 ### ⚖️ Class Imbalance Overview
@@ -42,7 +55,7 @@ This project focuses on building a deep learning system to classify thoracic dis
 
 > ⚠️ The dataset is highly imbalanced. "No Finding" accounts for over **half** of all labels, while critical conditions like Hernia and Pneumonia occur in **less than 2%** of images.
 
-### Multi-label Diesease Co-occurence
+### Multi-label Disease Co-occurence
 ![Chest X-ray Samples](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/coocurrencematrix.png)
 
 ### 🔊 Noisy Data

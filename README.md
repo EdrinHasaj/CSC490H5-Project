@@ -5,7 +5,7 @@ Team Member Names: Edrin Hasaj, Abdullah Siddiqui, Ibrahim Youssef, Haris Aljic
 # The Machine Vision Problem we are Addressing:
 Our goal is to employ a deep learning model to recognize patterns in chest X-ray images for the purpose of detecting thoracic diseases. This process involves identifying the presence of 14 thoracic diseases such as pneumonia, cardiomegaly, and more.
 
-## 📚 Table of Contents
+## Table of Contents
 
 - [Dataset](#dataset)
 - [Dataset Challenges](#dataset-challenges)
@@ -40,7 +40,7 @@ Our goal is to employ a deep learning model to recognize patterns in chest X-ray
 ## Dataset Challenges
 This project focuses on building a deep learning system to classify thoracic diseases from chest X-rays using the ChestX-ray14 dataset. We address challenges like:
 
-### ⚖️ Class Imbalance Overview
+### Class Imbalance Overview
 
 | Disease Class           | Image Count | Dataset Share (%) |
 |-------------------------|-------------|-------------------|
@@ -60,19 +60,19 @@ This project focuses on building a deep learning system to classify thoracic dis
 | Pneumonia               | 1,431       | 1.28%             |
 | Hernia                  | 227         | 0.20%             |
 
-> ⚠️ The dataset is highly imbalanced. "No Finding" accounts for over **half** of all labels, while critical conditions like Hernia and Pneumonia occur in **less than 2%** of images.
+>  The dataset is highly imbalanced. "No Finding" accounts for over **half** of all labels, while critical conditions like Hernia and Pneumonia occur in **less than 2%** of images.
 
 ### Multi-label Disease Co-occurence
 ![Chest X-ray Samples](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/coocurrencematrix.png)
 
-### 🔊 Noisy Data
+### Noisy Data
 ![Chest X-ray Samples](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/noisysample.png)
 
 ## Data Preprocessing
 
 To ensure high-quality input for model training, we applied a series of preprocessing steps and maintained patient-level separation during dataset splitting.
 
-### ✅ Patient-Level Splitting
+### Patient-Level Splitting
 
 Many patients in the ChestX-ray14 dataset have **multiple X-ray images**. To prevent **data leakage** and overly optimistic performance metrics, we split the dataset by **unique Patient IDs** into:
 
@@ -84,7 +84,7 @@ This guarantees that images from the same patient never appear in both the train
 
 ---
 
-### 🔄 Transformations Applied
+### Transformations Applied
 
 The following image preprocessing steps were applied to improve model robustness and performance:
 
@@ -140,7 +140,7 @@ Gamma Correction is a non-linear transformation that adjusts the brightness and 
 
 ---
 
-### 📈 Impact on Classification Performance (ConvNeXt Model)
+### Impact on Classification Performance (ConvNeXt Model)
 
 | Condition              | Prevalence | AUROC (Non-Gamma → Gamma) |
 |------------------------|------------|----------------------------|
@@ -163,9 +163,9 @@ Gamma Correction is a non-linear transformation that adjusts the brightness and 
 
 ---
 
-✅ **Gamma Correction proved highly effective**, especially for rare conditions like Pneumonia (+1.77%), Hernia (+1.12%), and Fibrosis (+0.50%).
+**Gamma Correction proved highly effective**, especially for rare conditions like Pneumonia (+1.77%), Hernia (+1.12%), and Fibrosis (+0.50%).
 
-🚀 This augmentation led to our **highest model performance**, helping ConvNeXt achieve an **AUROC of 83.86%**, outperforming all non-gamma corrected counterparts.
+This augmentation led to our **highest model performance**, helping ConvNeXt achieve an **AUROC of 83.86%**, outperforming all non-gamma corrected counterparts.
 
 ## Ensemble Modeling
 
@@ -182,7 +182,7 @@ We explored two main ensemble approaches:
 
 ---
 
-### ✅ 1. Uniform Weighted Average
+### 1. Uniform Weighted Average
 
 This method assigns equal weight to each model in the ensemble:
 
@@ -192,7 +192,7 @@ It’s simple, effective, and works well when models are relatively strong and d
 
 ---
 
-### ✅ 2. Differential Evolution (DE) + Forward Greedy Selection (Novel)
+### 2. Differential Evolution (DE) + Forward Greedy Selection (Novel)
 
 To further boost AUROC, we propose a **novel greedy-weighted ensemble**:
 
@@ -201,7 +201,7 @@ To further boost AUROC, we propose a **novel greedy-weighted ensemble**:
 
 ---
 
-#### 🔁 Pseudocode: Forward Greedy + DE Strategy
+#### Pseudocode: Forward Greedy + DE Strategy
 
 ```python
 def forward_greedy_de(models, val_preds, val_labels):
@@ -238,20 +238,20 @@ def forward_greedy_de(models, val_preds, val_labels):
 
 | **Ensemble Method**              | **AUROC** | **Competitive Best** | **Optimal Model Weights** |
 |----------------------------------|-----------|------------------------|----------------------------|
-| ✅ Uniform Weighted Average      | 0.8562    | 0.8532                 | MaxViT: 0.20, CoAtNet: 0.20, DenseNet121: 0.20, Swin: 0.20, ConvNeXt: 0.20, VGG19: 0.00 |
-| ✅ DE + Forward Greedy (Ours)    | **0.8565**| **0.8543**             | MaxViT: 0.2707, ConvNeXt: 0.2114, DenseNet121: 0.1911, CoAtNet: 0.1496, Swin: 0.1412, VGG19: 0.0360 |
+| Uniform Weighted Average      | 0.8562    | 0.8532                 | MaxViT: 0.20, CoAtNet: 0.20, DenseNet121: 0.20, Swin: 0.20, ConvNeXt: 0.20, VGG19: 0.00 |
+| DE + Forward Greedy (Ours)    | **0.8565**| **0.8543**             | MaxViT: 0.2707, ConvNeXt: 0.2114, DenseNet121: 0.1911, CoAtNet: 0.1496, Swin: 0.1412, VGG19: 0.0360 |
 
-> 🧠 Our **greedy DE ensemble** slightly outperforms both the uniform average and competitive SynthEnsemble benchmark, while also offering interpretable weighting per model.
+>  Our **greedy DE ensemble** slightly outperforms both the uniform average and competitive SynthEnsemble benchmark, while also offering interpretable weighting per model.
 
 ---
 
-### 📈 AUROC Comparison Chart
+### AUROC Comparison Chart
 
 ![AUROC Comparison](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/ensembleauroc.png)
 
 *Visualizing AUROC scores of our best ensemble.*
 
-> 📌 The ensemble approach consistently improved overall classification performance by leveraging model diversity and adaptive weighting.
+>  The ensemble approach consistently improved overall classification performance by leveraging model diversity and adaptive weighting.
 
 ## Model Interpretability with Grad-CAM
 
@@ -261,7 +261,7 @@ Grad-CAM is widely used in medical imaging to provide visual explanations by hig
 
 ---
 
-### 🧠 Why Heatmaps?
+### Why Heatmaps?
 
 - Helps validate that the model is learning **medically relevant features**
 - Reveals attention **differences between models**
@@ -271,7 +271,7 @@ We generated Grad-CAM heatmaps for **each individual model** and the **ensemble 
 
 ---
 
-### 📸 Heatmap Visualizations (Lung Nodule Sample)
+### Heatmap Visualizations (Lung Nodule Sample)
 
 <table>
   <tr>
@@ -293,7 +293,7 @@ We generated Grad-CAM heatmaps for **each individual model** and the **ensemble 
 
 ---
 
-### 💡 Insights from Grad-CAM
+### Insights from Grad-CAM
 
 - **DenseNet121** and **MaxViT** showed strong central activation near the suspected nodule.
 - **Swin** and **ConvNeXt** displayed more diffuse or scattered attention patterns.
@@ -302,7 +302,7 @@ We generated Grad-CAM heatmaps for **each individual model** and the **ensemble 
   - Filtered out irrelevant zones
   - Reduced individual model noise and bias
 
-> 📌 This fused visualization reflects how radiologists cross-reference cues and provides an interpretable justification for the ensemble's superior AUROC performance.
+>  This fused visualization reflects how radiologists cross-reference cues and provides an interpretable justification for the ensemble's superior AUROC performance.
 
 ---
 
@@ -312,25 +312,25 @@ Despite our efforts, two key challenges remained unresolved. First, the issue of
 
 ## Individual Contributions
 
-### 🔹 Edrin Hasaj
+### Edrin Hasaj
 - Researched and documented deep learning models and data augmentation techniques  
 - Handled image resizing, preprocessing, and model implementation  
 - Performed hyperparameter tuning and trained multiple model variants  
 - Explored and implemented ensemble methods including Differential Evolution  
 - Generated Grad-CAM heatmaps for individual models and the ensemble to support interpretability
 
-### 🔹 Abdullah Siddiqui
+### Abdullah Siddiqui
 - Set up the model training and testing environment  
 - Focused on singular model exploration, training, and evaluation
 - Experimented with different libraries and singular model implementation
 - Ran cross-validation experiments to assess generalization performance
 
-### 🔹 Ibrahim Youssef
+### Ibrahim Youssef
 - Researched benchmark scores from prior studies for comparison  
 - Collaborated on advanced data preprocessing techniques with Haris  
 - Assisted with hyperparameter tuning and running model training scripts
 
-### 🔹 Haris Aljic
+### Haris Aljic
 - Applied gamma correction to all singular models and evaluated its impact  
 - Built detailed tables comparing AUROC results across models and settings  
 - Trained multiple models and co-developed the cross-validation script  
@@ -338,7 +338,7 @@ Despite our efforts, two key challenges remained unresolved. First, the issue of
 
 ## Notebook Overview
 
-| 📁 Location                  | 📘 Notebook                                     | 📝 Description                                                  |
+| Location                    | Notebook                                        | Description                                                  |
 |-----------------------------|-------------------------------------------------|-----------------------------------------------------------------|
 | `cv_no_overlap/`            | `VGG19_cv_model_training.ipynb`                 | VGG19 with 4-fold cross-validation                              |
 | `cv_no_overlap/`            | `DenseNet121_cv_model_training.ipynb`          | DenseNet121 CV model training                                   |

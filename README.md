@@ -105,28 +105,33 @@ The following image preprocessing steps were applied to improve model robustness
 
 > All transformations were implemented using `torchvision.transforms` and were applied consistently across training and evaluation phases (except randomness during inference).
 
-
-
 ## Model Architectures Explored
 
-- **CNN Models**: VGG19, DenseNet121
-![Chest X-ray Samples](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/D121.drawio_2.png)
-- **Hybrid CNN + Transformer Models**: MaxViT, CoAtNet, ConvNeXt
-![Chest X-ray Samples](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/MaxViT.drawio_5.png)
+- **CNN Models**: VGG19, DenseNet121  
+  <br><sub><b>Figure 1:</b> DenseNet121 Architecture Diagram</sub>  
+  ![DenseNet121](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/D121.drawio_2.png)
+
+- **Hybrid CNN + Transformer Models**: MaxViT, CoAtNet, ConvNeXt  
+  <br><sub><b>Figure 2:</b> MaxViT Architecture Diagram</sub>  
+  ![MaxViT](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/MaxViT.drawio_5.png)
+
 - **Pure Transformer**: Swin Transformer
+
+---
 
 ## Singular Model Results
 
-| Model        | Type                | Best AUROC |
-|--------------|---------------------|------------|
-| VGG19        | CNN                 | 0.8065     |
-| DenseNet121  | Dense CNN           | 0.8316     |
-| MaxViT       | CNN + Transformer   | **0.8385** |
-| CoAtNet      | Hybrid Transformer  | 0.8347     |
-| ConvNeXt     | Conv-inspired CNN   | 0.8359     |
-| Swin         | Pure Transformer    | 0.8312     |
+| Model        | Type                | Params (M) | Best AUROC |
+|--------------|---------------------|------------|------------|
+| VGG19        | CNN                 | 143.7      | 0.8065     |
+| DenseNet121  | Dense CNN           | 7.97       | 0.8316     |
+| MaxViT       | CNN + Transformer   | 124.5      | **0.8385** |
+| CoAtNet      | Hybrid Transformer  | 73.9       | 0.8347     |
+| ConvNeXt     | Conv-inspired CNN   | 229.8      | 0.8359     |
+| Swin         | Pure Transformer    | 228.6      | 0.8312     |
 
----
+> All pretrained models were imported using the [`timm`](https://github.com/huggingface/pytorch-image-models) library.
+
 
 ## Gamma Correction Augmentation
 

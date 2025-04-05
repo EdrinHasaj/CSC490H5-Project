@@ -8,7 +8,7 @@ Our goal is to employ a deep learning model to recognize patterns in chest X-ray
 ## 📚 Table of Contents
 - [Dataset](#dataset)
 - [Dataset Challenges](#dataset-challenges)
-- [Data Preprocessing](#️data-loading--preprocessing)
+- [Data Preprocessing](#️data-preprocessing)
 - [Model Architectures](#-model-architectures-explored)
 - [Gamma Correction](#-gamma-correction-augmentation)
 - [Ensemble Modeling](#-ensemble-modeling-differential-evolution--greedy-selection)

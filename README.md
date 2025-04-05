@@ -337,7 +337,7 @@ We generated Grad-CAM heatmaps for **each individual model** and the **ensemble 
 Despite our efforts, two key challenges remained unresolved. First, the issue of **class imbalance** proved difficult to fully mitigate. While our gamma correction augmentation improved performance on rare classes, traditional methods such as over-sampling, under-sampling, and class-weighted loss functions often resulted in degraded performance. Second, due to **limited computational resources**, we were unable to perform comprehensive hyperparameter tuning across all models. This deterred our ability to explore larger architectures, deeper ensembles, and fine-tuned optimization, which may have further boosted performance.
 
 ## Scientific Poster
-![Poster](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/CSC490_Final_Poster%20(1).pdf)
+![Poster](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/CSC490_Final_Poster.png?raw=true)
 
 ## Individual Contributions
 

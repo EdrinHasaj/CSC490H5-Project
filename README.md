@@ -19,6 +19,7 @@ Our goal is to employ a deep learning model to recognize patterns in chest X-ray
 - [Limitations](#limitations)
 - [Individual Contributions](#individual-contributions)
 - [Notebook Overview](#notebook-overview)
+- [References](#references)
 
 
 
@@ -274,19 +275,19 @@ We generated Grad-CAM heatmaps for **each individual model** and the **ensemble 
 
 <table>
   <tr>
-    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/vggnodule.png" width="140"/><br><b>VGG</b></td>
-    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/coatnetnodule.png" width="140"/><br><b>CoAtNet</b></td>
-    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/convnextnodule.png" width="140"/><br><b>ConvNeXt</b></td>
+    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/vggnodule.png" width="300"/><br><b>VGG</b></td>
+    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/coatnetnodule.png" width="300"/><br><b>CoAtNet</b></td>
+    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/convnextnodule.png" width="300"/><br><b>ConvNeXt</b></td>
   </tr>
   <tr>
-    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/densnetnodule.png" width="140"/><br><b>DenseNet121</b></td>
-    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/swinnodule.png" width="140"/><br><b>Swin</b></td>
-    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/maxvitnodule.png" width="140"/><br><b>MaxViT</b></td>
+    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/densnetnodule.png" width="300"/><br><b>DenseNet121</b></td>
+    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/swinnodule.png" width="300"/><br><b>Swin</b></td>
+    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/maxvitnodule.png" width="300"/><br><b>MaxViT</b></td>
   </tr>
   <tr>
-    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/noduleensemble.png" width="140"/><br><b>Ensemble</b></td>
-    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/nodule.png" width="140"/><br><b>Original X-ray</b></td>
-    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/nodulereference.png" width="140"/><br><b>Reference</b></td>
+    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/noduleensemble.png" width="300"/><br><b>Ensemble</b></td>
+    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/nodule.png" width="300"/><br><b>Original X-ray</b></td>
+    <td align="center"><img src="https://github.com/EdrinHasaj/CSC490H5-Project/raw/main/figures/nodulereference.png" width="300"/><br><b>Reference</b></td>
   </tr>
 </table>
 
@@ -362,7 +363,14 @@ Despite our efforts, two key challenges remained unresolved. First, the issue of
 | Root                        | `singular_model_results.xlsx`                   | AUROC scores for all singular models                            |
 | `figures/`                  | *Images only*                                   | Architecture diagrams, Grad-CAM heatmaps, figures for README    |
 
+## References
 
+1. **NIH ChestX-ray14 Dataset**  
+   Wang, X., Peng, Y., Lu, L., Lu, Z., Bagheri, M., & Summers, R. M. (2017). *ChestX-ray8: Hospital-scale chest X-ray database and benchmarks on weakly-supervised classification and localization of common thorax diseases*. IEEE CVPR.  
+   [Link to Dataset on Kaggle](https://www.kaggle.com/datasets/nih-chest-xrays/data)
 
+2. **SynthEnsemble: Ensemble Learning for Chest X-ray Multi-label Classification**  
+   Ashraf, H., Chen, Z., & Lin, H. (2023). *SynthEnsemble: An Empirical Study of Ensemble Learning for Chest X-ray Multi-label Classification*.  
+   [Read on arXiv](https://arxiv.org/abs/2310.08363)
 
 

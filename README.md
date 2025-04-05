@@ -8,7 +8,7 @@ Our goal is to employ a deep learning model to recognize patterns in chest X-ray
 ## 📚 Table of Contents
 - [Dataset](#dataset)
 - [Dataset Challenges](#dataset-challenges)
-- [🗃️ Data Preprocessing](#️data-loading--preprocessing)
+- [Data Preprocessing](#️data-loading--preprocessing)
 - [Model Architectures](#-model-architectures-explored)
 - [Gamma Correction](#-gamma-correction-augmentation)
 - [Ensemble Modeling](#-ensemble-modeling-differential-evolution--greedy-selection)
@@ -61,7 +61,7 @@ This project focuses on building a deep learning system to classify thoracic dis
 ### 🔊 Noisy Data
 ![Chest X-ray Samples](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/noisysample.png)
 
-## [🗃️ Data Preprocessing](#️data-loading--preprocessing)
+## [🗃️ Data Preprocessing](#️data-preprocessing)
 
 To ensure high-quality input for model training, we applied a series of preprocessing steps and maintained patient-level separation during dataset splitting.
 

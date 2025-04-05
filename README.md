@@ -37,7 +37,7 @@ Our goal is to employ a deep learning model to recognize patterns in chest X-ray
 ![Chest X-ray Samples](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/intro.png)
 
 
-## [Dataset Challenges](#dataset)
+## Dataset Challenges
 This project focuses on building a deep learning system to classify thoracic diseases from chest X-rays using the ChestX-ray14 dataset. We address challenges like:
 
 ### ⚖️ Class Imbalance Overview
@@ -68,7 +68,7 @@ This project focuses on building a deep learning system to classify thoracic dis
 ### 🔊 Noisy Data
 ![Chest X-ray Samples](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/noisysample.png)
 
-## [Data Preprocessing]
+## Data Preprocessing
 
 To ensure high-quality input for model training, we applied a series of preprocessing steps and maintained patient-level separation during dataset splitting.
 

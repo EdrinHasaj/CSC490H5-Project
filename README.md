@@ -17,6 +17,7 @@ Our goal is to employ a deep learning model to recognize patterns in chest X-ray
 - [Ensemble AUROC Results](#ensemble-auroc-results)
 - [Model Interpretability with Grad-CAM](#model-interpretability-with-grad-cam)
 - [Limitations](#limitations)
+- [Scientific Poster](#scientific-poster)
 - [Individual Contributions](#individual-contributions)
 - [Notebook Overview](#notebook-overview)
 - [References](#references)
@@ -314,6 +315,9 @@ We generated Grad-CAM heatmaps for **each individual model** and the **ensemble 
 ## Limitations
 
 Despite our efforts, two key challenges remained unresolved. First, the issue of **class imbalance** proved difficult to fully mitigate. While our gamma correction augmentation improved performance on rare classes, traditional methods such as over-sampling, under-sampling, and class-weighted loss functions often resulted in degraded performance or overfitting. Second, due to **limited computational resources**, we were unable to perform comprehensive hyperparameter tuning across all models. This constrained our ability to explore larger architectures, deeper ensembles, and fine-grained optimization, which may have further boosted performance.
+
+## Scientific Poster
+![Poster](https://github.com/EdrinHasaj/CSC490H5-Project/blob/main/figures/CSC490_Final_Poster%20(1).pdf)
 
 ## Individual Contributions
 
